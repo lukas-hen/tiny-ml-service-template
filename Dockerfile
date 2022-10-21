@@ -5,6 +5,8 @@ WORKDIR /usr/src/app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+COPY src/ .
 
-CMD [ "python", "src/app.py" ]
+EXPOSE 8000
+
+CMD [ "uvicorn", "main:app", "--host", "0.0.0.0"]

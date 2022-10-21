@@ -4,4 +4,4 @@ build:
 	docker build -t $(IMG_TAG) .
 
 run:
-	docker run $(IMG_TAG)
+	docker run -p 8000:8000 $(IMG_TAG)
