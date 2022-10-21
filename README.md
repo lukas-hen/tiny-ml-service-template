@@ -18,3 +18,4 @@ When you launch the container, FastApi gives you api docs out of the box. Please
 * Add proper exception handling
 * Add better logging
 * Add scoring functionality & endpoint to get model score.
+* Separate out dev deps from prod image.
