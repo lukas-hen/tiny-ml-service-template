@@ -9,3 +9,6 @@ To run the latest container, run `make run`
 ## Linting
 For linting black is used. If you don't already have it installed locally, please run `make deps`.
 Then you can lint your code by running `make lint`
+
+## Docs
+When you launch the container, FastApi gives you api docs out of the box. Please run the container and see localhost:8000/docs
