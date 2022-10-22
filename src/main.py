@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from models.inference import InferenceInput
 from inference_runner import infer
 from startup_checks import assert_all_models_implement_predict
+from utils import get_latest_model
 
 models_path = "ml_models"
 
