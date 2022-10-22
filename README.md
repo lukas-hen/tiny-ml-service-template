@@ -14,7 +14,7 @@ Then you can lint your code by running `make lint`
 When you launch the container, FastApi gives you api docs out of the box. Please run the container and see localhost:8000/docs
 
 ## TODO
-* Add support for multiline inference.
+* ~Add support for multiline inference.~
 * Add proper exception handling
 * Add better logging
 * Add scoring functionality & endpoint to get model score.

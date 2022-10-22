@@ -1,27 +1,35 @@
 from models.inference import InferenceInput, InferenceResponse
-import pickle
 import numpy as np
 from datetime import datetime
 
 
-def infer(data: InferenceInput, model_version: str) -> InferenceResponse:
+def infer(data: list[InferenceInput], model) -> list[InferenceResponse]:
     """
-    Inference "drivers"
+    Inference function.
 
-    Example implementation of model inference. Has to be altered depending on the model.
+    Model specific implementation that takes API DAO and returns parsed response.
     """
-    with open(f"ml_models/{model_version}.pkl", "rb") as f:
-        clf = pickle.loads(f.read())
-
-    inference_result = clf.predict(
-        np.array(
-            [[data.sepal_length, data.sepal_width, data.petal_length, data.petal_width]]
+    results = []
+    for item in data:
+        inference_result = model.predict(
+            np.array(
+                [
+                    [
+                        item.sepal_length,
+                        item.sepal_width,
+                        item.petal_length,
+                        item.petal_width,
+                    ]
+                ]
+            )
         )
-    )
-    return InferenceResponse(
-        **{
-            "inference_result": inference_result[0],
-            "model_version": model_version,
-            "inference_ts": datetime.now().isoformat(),
-        }
-    )
+
+        results.append(
+            InferenceResponse(
+                input=item,
+                inference_result=inference_result,
+                inference_ts=datetime.now().isoformat(),
+            )
+        )
+
+    return results

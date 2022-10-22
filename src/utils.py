@@ -1,6 +1,14 @@
 from os import listdir
 from os.path import isfile, join
-import inspect
+import pickle
+
+
+def load_model(model_path: str):
+    """
+    Loads a model.
+    """
+    with open(model_path, "rb") as f:
+        return pickle.loads(f.read())
 
 
 def get_latest_model(models_path: str) -> str:

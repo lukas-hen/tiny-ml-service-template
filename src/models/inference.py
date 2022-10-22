@@ -21,6 +21,6 @@ class InferenceResponse(BaseModel):
     Example response for the Iris dataset.
     """
 
+    input: InferenceInput
     inference_result: float
-    model_version: str
     inference_ts: str
