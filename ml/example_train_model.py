@@ -18,4 +18,4 @@ clf = tree.DecisionTreeClassifier()
 clf = clf.fit(X, y)
 
 with open(f"ml_models/{model_version}.pkl", "wb") as f:
-    pickle.dump(clf, f)
+    pickle.dump(iris, f)
